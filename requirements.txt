@@ -1,0 +1,22 @@
+# Core LangChain libraries
+langchain
+langchain-community
+langchain-experimental
+langchain-huggingface
+langchain-openai
+langchain-chroma>=0.1.2
+
+# NLP / Embeddings
+sentence-transformers
+bitsandbytes
+accelerate
+
+# Visualization & Image
+matplotlib
+
+# Jupyter Environment
+jupyter
+notebook
+ipywidgets
+jupyterlab-widgets
+ipykernel
