@@ -8,10 +8,10 @@ git config --global user.name "JeonghoJang"
 
 mkdir my-volume
 cd my-volume
-touch .env
 
 git clone https://github.com/Je0ngh0/samsung-qreport-rag.git
 cd samsung-qreport-rag
+touch .env
 
 wget -qO- https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
@@ -20,4 +20,5 @@ uv venv --python 3.12 --seed
 source .venv/bin/activate
 
 uv pip install -r requirements.txt
+
 uv pip install vllm --torch-backend=auto
