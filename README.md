@@ -21,11 +21,11 @@
 
 ### Chunking
 
-| 이름    | 이미지                                                                             |
-| ------- | ---------------------------------------------------------------------------------- |
-| raw     | ![samsung_qreport_173page|425](./images/samsung_qreport_173page.png)               |
-| parsed  | ![samsung_qreport_173page_parsed|425](./images/samsung_qreport_173page_parsed.png) |
-| chunked | ![markdown_header_chunked|425](./images/markdown_header_chunked.png)               |
+| 이름    | 이미지                                                                         |
+| ------- | ------------------------------------------------------------------------------ |
+| raw     | ![samsung_qreport_173page](./images/samsung_qreport_173page.png)               |
+| parsed  | ![samsung_qreport_173page_parsed](./images/samsung_qreport_173page_parsed.png) |
+| chunked | ![markdown_header_chunked](./images/markdown_header_chunked.png)               |
 
 - 랭체인의 MarkdownHeaderTextSplitter를 이용하여 **헤더**를 경계로 자름
 
