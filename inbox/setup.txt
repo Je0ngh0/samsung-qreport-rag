@@ -22,3 +22,8 @@ source .venv/bin/activate
 uv pip install -r requirements.txt
 
 uv pip install vllm --torch-backend=auto
+
+pip install fastapi
+pip install "uvicorn[standard]"         
+uvicorn app:app --reload --port 7778
+vllm serve skt/A.X-4.0-Light --gpu-memory-utilization 0.8
