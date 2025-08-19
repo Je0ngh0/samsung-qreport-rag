@@ -30,3 +30,7 @@ vllm serve skt/A.X-4.0-Light --gpu-memory-utilization 0.8
 
 nohup uvicorn app:app --host 0.0.0.0 --port 7778 > uvicorn.log 2>&1 < /dev/null &
 nohup vllm serve skt/A.X-4.0-Light --gpu-memory-utilization 0.8 > vllm.log 2>&1 < /dev/null &
+
+
+tail -f uvicorn.log
+tail -f vllm.log
