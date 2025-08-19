@@ -38,10 +38,10 @@
 
 - Qwen3-Embedding-8B 모델을 이용하여 임베딩
 - 랭체인에서 제공하는 임베딩 클래스는 파라미터(양자화, 토큰, temperature)를 수정하기 어려움
-  - Transfomers나 Sentence Transformers를 사용해야 함
-- 랭체인의 embedding 클래스를 이용하기 위해 [**Custom Embeddings**](https://python.langchain.com/docs/how_to/custom_embeddings) 를 이용하여 Transformers 기반 임베딩 모델을 LangChain 커스텀 클래스로 구현해야 함
-  - `LangChain DocumentLoader` -> `LangChain TextSplitter` -> `LangChain Embeddings` -> `LangChain VectorStore`
-  - 단계별 요소들이 매끄럽게 연동되도록, 커스텀 컴포넌트가 필요함
+  - **Transfomers**나 Sentence Transformers를 사용해야 함
+- `LangChain DocumentLoader` -> `LangChain TextSplitter` -> `LangChain Embeddings` -> `LangChain VectorStore`
+  - 단계별 요소들이 매끄럽게 연동되도록, 랭체인 embedding 클래스사용 해야 함
+- 랭체인의 embedding 클래스를 상속한 [**Custom Embeddings**](https://python.langchain.com/docs/how_to/custom_embeddings) 클래스를 이용하여 내부에 **Transformers** 기반 임베딩 모델을 연결
 - Chroma DB에 저장
 
 ## RAG
@@ -71,15 +71,14 @@ chain = (
 
 ### PDFPlumber & Semantic Chunker
 
-- 원인
+- 문제
 
+  - Semantic Chunker가 사용하는 임베딩 모델에서 **OOM(Out Of Memory)** 발생
+
+- 원인
   - PDFPlumber가 텍스트를 올바르게 파싱하지 못함
   - 이로 인해 토크나이저가 문자를 인식하지 못함
-
-- 문제
-  - Semantic Chunker가 문장의 의미 단위로 분할하지 못하고 정상적으로 작동하지 않음
-  - 인식되지 않은 문자는 토큰 크기가 커짐
-  - 그 결과 Semantic Chunker가 사용하는 임베딩 모델에서 **OOM(Out Of Memory)** 발생
+  - 인식되지 않은 문자는 잘게 분리되어 토큰 수가 비정상적으로 증가 -> 임베딩 모델에서 **OOM(Out Of Memory)** 발생
 
 ### google/gemma-3-27b-it
 
